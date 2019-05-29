@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         album.setTitle(discography.getTitle());
         album.setAlbumDetail(discography.getAlbumDetail());
         album.setCover(discography.getCover());
+        album.setCertification(discography.getCertification());
         Intent x = new Intent(this, ActivityDetail.class);
         x.putExtra("album_extra", album);
         startActivity(x);

@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 public class ActivityDetail extends AppCompatActivity {
-    private TextView title, detail;
+    private TextView title, detail, certification;
     private ImageView cover;
 
     @Override
@@ -17,9 +17,10 @@ public class ActivityDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        title  = findViewById(R.id.tv_title);
-        detail = findViewById(R.id.tv_detail);
-        cover  = findViewById(R.id.img_cover);
+        title         = findViewById(R.id.tv_title);
+        detail        = findViewById(R.id.tv_detail);
+        cover         = findViewById(R.id.img_cover);
+        certification = findViewById(R.id.tv_certification);
 
         showIntentObject();
     }
@@ -30,9 +31,11 @@ public class ActivityDetail extends AppCompatActivity {
 
         String album_title  = queenDiscography.getTitle();
         String album_detail = queenDiscography.getAlbumDetail();
+        String album_certification = queenDiscography.getCertification();
 
         title.setText(album_title);
         detail.setText(album_detail);
+        certification.setText(album_certification);
         setCoverAlbum();
 
     }
@@ -47,6 +50,5 @@ public class ActivityDetail extends AppCompatActivity {
 
         Glide.with(this).load(img).apply(options).into(cover);
     }
-
 
 }
