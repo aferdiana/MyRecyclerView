@@ -23,7 +23,7 @@ public class DataDiscography {
     };
 
     public static ArrayList<QueenDiscography> getListData() {
-        QueenDiscography queenDiscography= null;
+        QueenDiscography queenDiscography = null;
         ArrayList<QueenDiscography> list = new ArrayList<>();
         for (String[] aData : data) {
             queenDiscography = new QueenDiscography();
