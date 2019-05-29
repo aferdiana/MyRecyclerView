@@ -1,4 +1,4 @@
-package io.github.aferdiana.myrecyclerview;
+package io.github.aferdiana.myrecyclerview.CardView;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -15,6 +15,10 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
+
+import io.github.aferdiana.myrecyclerview.CustomOnItemClickListener;
+import io.github.aferdiana.myrecyclerview.QueenDiscography;
+import io.github.aferdiana.myrecyclerview.R;
 
 public class CardViewDiscographyAdapter extends RecyclerView.Adapter<CardViewDiscographyAdapter.CardViewViewHolder> {
     private Context context;

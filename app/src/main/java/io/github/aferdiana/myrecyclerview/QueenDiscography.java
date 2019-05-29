@@ -1,6 +1,9 @@
 package io.github.aferdiana.myrecyclerview;
 
-public class QueenDiscography {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class QueenDiscography implements Parcelable {
     private String title, albumDetail, cover;
 
     public String getTitle() {
@@ -26,4 +29,37 @@ public class QueenDiscography {
     public void setCover(String cover) {
         this.cover = cover;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.title);
+        dest.writeString(this.albumDetail);
+        dest.writeString(this.cover);
+    }
+
+    public QueenDiscography() {
+    }
+
+    protected QueenDiscography(Parcel in) {
+        this.title = in.readString();
+        this.albumDetail = in.readString();
+        this.cover = in.readString();
+    }
+
+    public static final Creator<QueenDiscography> CREATOR = new Creator<QueenDiscography>() {
+        @Override
+        public QueenDiscography createFromParcel(Parcel source) {
+            return new QueenDiscography(source);
+        }
+
+        @Override
+        public QueenDiscography[] newArray(int size) {
+            return new QueenDiscography[size];
+        }
+    };
 }
