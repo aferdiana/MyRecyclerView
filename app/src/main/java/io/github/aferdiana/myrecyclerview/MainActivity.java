@@ -1,5 +1,6 @@
 package io.github.aferdiana.myrecyclerview;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -50,43 +51,54 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void showSelectedPresident(QueenDiscography president) {
-        Toast.makeText(this, "Kamu memilih " + president.getTitle(), Toast.LENGTH_SHORT).show();
+    private void showSelectedAlbum(QueenDiscography discography) {
+        Toast.makeText(this, "Kamu memilih " + discography.getTitle(), Toast.LENGTH_SHORT).show();
     }
+
+    private void showDetailAlbum(QueenDiscography discography) {
+        QueenDiscography album = new QueenDiscography();
+        album.setTitle(discography.getTitle());
+        album.setAlbumDetail(discography.getAlbumDetail());
+        album.setCover(discography.getCover());
+        Intent x = new Intent(this, ActivityDetail.class);
+        x.putExtra("album_extra", album);
+        startActivity(x);
+    }
+
 
     private void showRecyclerList() {
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        ListDiscographyAdapter listPresidentAdapter = new ListDiscographyAdapter(this);
-        listPresidentAdapter.setListDiscography(list);
-        rvCategory.setAdapter(listPresidentAdapter);
+        final ListDiscographyAdapter listDiscographyAdapter = new ListDiscographyAdapter(this);
+        listDiscographyAdapter.setListDiscography(list);
+        rvCategory.setAdapter(listDiscographyAdapter);
 
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedPresident(list.get(position));
+                showDetailAlbum(list.get(position));
             }
         });
     }
 
     private void showRecyclerGrid() {
         rvCategory.setLayoutManager(new GridLayoutManager(this, 2));
-        GridDiscographyAdapter gridPresidentAdapter = new GridDiscographyAdapter(this);
-        gridPresidentAdapter.setListDiscography(list);
-        rvCategory.setAdapter(gridPresidentAdapter);
+        GridDiscographyAdapter gridDiscographyAdapter = new GridDiscographyAdapter(this);
+        gridDiscographyAdapter.setListDiscography(list);
+        rvCategory.setAdapter(gridDiscographyAdapter);
 
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedPresident(list.get(position));
+                showSelectedAlbum(list.get(position));
             }
         });
     }
 
     private void showRecyclerCardView() {
         rvCategory.setLayoutManager(new LinearLayoutManager(this));
-        CardViewDiscographyAdapter cardViewPresidentAdapter = new CardViewDiscographyAdapter(this);
-        cardViewPresidentAdapter.setListDiscography(list);
-        rvCategory.setAdapter(cardViewPresidentAdapter);
+        CardViewDiscographyAdapter cardViewDiscographyAdapter = new CardViewDiscographyAdapter(this);
+        cardViewDiscographyAdapter.setListDiscography(list);
+        rvCategory.setAdapter(cardViewDiscographyAdapter);
     }
 
     @Override

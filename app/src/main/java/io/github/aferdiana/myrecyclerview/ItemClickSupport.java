@@ -9,6 +9,7 @@ public class ItemClickSupport {
     private OnItemClickListener mOnItemClickListener;
     private OnItemLongClickListener mOnItemLongClickListener;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+
         @Override
         public void onClick(View v) {
             if (mOnItemClickListener != null) {
