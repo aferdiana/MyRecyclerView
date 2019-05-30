@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         album.setCover(discography.getCover());
         album.setCertification(discography.getCertification());
         album.setStory(discography.getStory());
+        album.setSong(discography.getSong());
         Intent x = new Intent(this, ActivityDetail.class);
         x.putExtra("album_extra", album);
         startActivity(x);
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         ItemClickSupport.addTo(rvCategory).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                showSelectedAlbum(list.get(position));
+                showDetailAlbum(list.get(position));
             }
         });
     }

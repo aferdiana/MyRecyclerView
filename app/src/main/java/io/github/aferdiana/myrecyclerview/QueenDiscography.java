@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class QueenDiscography implements Parcelable {
-    private String title, albumDetail, cover, certification, story;
+    private String title, albumDetail, cover, certification, story, song;
 
     public String getTitle() {
         return title;
@@ -46,6 +46,14 @@ public class QueenDiscography implements Parcelable {
         this.story = story;
     }
 
+    public String getSong() {
+        return song;
+    }
+
+    public void setSong(String song) {
+        this.song = song;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -58,6 +66,7 @@ public class QueenDiscography implements Parcelable {
         dest.writeString(this.cover);
         dest.writeString(this.certification);
         dest.writeString(this.story);
+        dest.writeString(this.song);
     }
 
     public QueenDiscography() {
@@ -69,6 +78,7 @@ public class QueenDiscography implements Parcelable {
         this.cover = in.readString();
         this.certification = in.readString();
         this.story = in.readString();
+        this.song = in.readString();
     }
 
     public static final Creator<QueenDiscography> CREATOR = new Creator<QueenDiscography>() {
