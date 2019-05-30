@@ -15,7 +15,6 @@ public class ActivityDetail extends AppCompatActivity {
     private TextView title, detail, certification, story, song;
     private ImageView cover;
     private Button share;
-    final String STATE_TITLE = "state_string";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
