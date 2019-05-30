@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         album.setAlbumDetail(discography.getAlbumDetail());
         album.setCover(discography.getCover());
         album.setCertification(discography.getCertification());
+        album.setStory(discography.getStory());
         Intent x = new Intent(this, ActivityDetail.class);
         x.putExtra("album_extra", album);
         startActivity(x);

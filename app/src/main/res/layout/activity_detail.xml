@@ -58,7 +58,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginBottom="@dimen/activity_horizontal_margin"
                     android:text="Certification :"
                     android:textColor="@android:color/black" />
 
@@ -75,6 +74,7 @@
         </TableLayout>
 
         <TextView
+            android:id="@+id/tv_story"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"

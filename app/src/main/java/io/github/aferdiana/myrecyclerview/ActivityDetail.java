@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 
 public class ActivityDetail extends AppCompatActivity {
-    private TextView title, detail, certification;
+    private TextView title, detail, certification, story;
     private ImageView cover;
 
     @Override
@@ -21,6 +21,7 @@ public class ActivityDetail extends AppCompatActivity {
         detail        = findViewById(R.id.tv_detail);
         cover         = findViewById(R.id.img_cover);
         certification = findViewById(R.id.tv_certification);
+        story         = findViewById(R.id.tv_story);
 
         showIntentObject();
     }
@@ -32,10 +33,12 @@ public class ActivityDetail extends AppCompatActivity {
         String album_title  = queenDiscography.getTitle();
         String album_detail = queenDiscography.getAlbumDetail();
         String album_certification = queenDiscography.getCertification();
+        String album_story = queenDiscography.getStory();
 
         title.setText(album_title);
         detail.setText(album_detail);
         certification.setText(album_certification);
+        story.setText(album_story);
         setCoverAlbum();
 
     }
